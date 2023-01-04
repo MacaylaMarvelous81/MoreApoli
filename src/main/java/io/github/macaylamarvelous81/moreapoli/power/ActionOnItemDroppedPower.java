@@ -14,13 +14,13 @@ import net.minecraft.item.ItemStack;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-public class ActionOnItemDropPower extends Power {
+public class ActionOnItemDroppedPower extends Power {
     private final Predicate<ItemStack> itemCondition;
     private final Consumer<Entity> entityAction;
     private final Consumer<ItemStack> itemAction;
     private final Consumer<ItemEntity> itemEntityAction;
 
-    public ActionOnItemDropPower(
+    public ActionOnItemDroppedPower(
             PowerType<?> type,
             LivingEntity entity,
             Predicate<ItemStack> itemCondition,
@@ -36,7 +36,7 @@ public class ActionOnItemDropPower extends Power {
         this.itemEntityAction = itemEntityAction;
     }
 
-    public boolean doesApply(ItemStack itemStack) {
+    public boolean shouldExecute(ItemStack itemStack) {
         return itemCondition == null || itemCondition.test(itemStack);
     }
 
@@ -55,17 +55,21 @@ public class ActionOnItemDropPower extends Power {
     }
 
     public static PowerFactory createFactory() {
-        return new PowerFactory<>(MoreApoli.identifier("action_on_item_drop"),
+        return new PowerFactory<>(
+                MoreApoli.identifier("action_on_item_dropped"),
                 new SerializableData()
                         .add("item_condition", ApoliDataTypes.ITEM_CONDITION, null)
                         .add("entity_action", ApoliDataTypes.ENTITY_ACTION, null)
                         .add("item_action", ApoliDataTypes.ITEM_ACTION, null)
                         .add("item_entity_action", ApoliDataTypes.ENTITY_ACTION, null),
-                data -> (type, player) -> new ActionOnItemDropPower(type, player,
+                data -> (type, player) -> new ActionOnItemDroppedPower(
+                        type,
+                        player,
                         data.get("item_condition"),
                         data.get("entity_action"),
                         data.get("item_action"),
-                        data.get("item_entity_action")))
+                        data.get("item_entity_action"))
+        )
                 .allowCondition();
     }
 }

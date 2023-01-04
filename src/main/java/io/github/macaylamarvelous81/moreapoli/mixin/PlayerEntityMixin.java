@@ -1,7 +1,7 @@
 package io.github.macaylamarvelous81.moreapoli.mixin;
 
 import io.github.apace100.apoli.component.PowerHolderComponent;
-import io.github.macaylamarvelous81.moreapoli.power.ActionOnItemDropPower;
+import io.github.macaylamarvelous81.moreapoli.power.ActionOnItemDroppedPower;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -19,8 +19,8 @@ public abstract class PlayerEntityMixin {
 		// powers of this PlayerEntity
 		PowerHolderComponent component = PowerHolderComponent.KEY.get(self);
 
-		for (ActionOnItemDropPower power : component.getPowers(ActionOnItemDropPower.class)) {
-			if (power.doesApply(stack)) {
+		for (ActionOnItemDroppedPower power : component.getPowers(ActionOnItemDroppedPower.class)) {
+			if (power.shouldExecute(stack)) {
 				power.executeActions(stack, itemEntity);
 			}
 		}
