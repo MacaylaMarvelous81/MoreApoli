@@ -4,8 +4,7 @@ More Apoli is a mod for datapack developers which adds more powers and
 actions to [Apoli](https://github.com/apace100/apoli).
 
 ### Usage
-WIP: Documentation  
-WIP: Example datapack
+[Read the documentation!](https://github.com/MacaylaMarvelous81/MoreApoli/tree/master/docs)
 
 This mod's namespace is `more_apoli`. Here's an example
 [Origins](https://github.com/apace100/origins-fabric) power which uses
