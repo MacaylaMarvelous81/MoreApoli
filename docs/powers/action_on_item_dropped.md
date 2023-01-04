@@ -1,6 +1,6 @@
-# Action on Item Drop
+# Action on Item Dropped
 
-The `action_on_item_drop` power enables you to trigger an action after a
+The `action_on_item_dropped` power enables you to trigger an action after a
 player drops an item through a power. This is **only** triggered on players,
 not other entities.
 
