@@ -1,7 +1,7 @@
 # More Apoli
 
-More Apoli is a mod for datapack developers which adds more powers and
-actions to [Apoli](https://github.com/apace100/apoli).
+More Apoli is a mod for datapack developers which adds more powers to
+[Apoli](https://github.com/apace100/apoli).
 
 ### Usage
 [Read the documentation!](https://github.com/MacaylaMarvelous81/MoreApoli/tree/master/docs)
