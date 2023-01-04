@@ -20,12 +20,14 @@ public class ActionOnItemDropPower extends Power {
     private final Consumer<ItemStack> itemAction;
     private final Consumer<ItemEntity> itemEntityAction;
 
-    public ActionOnItemDropPower(PowerType<?> type,
-                                 LivingEntity entity,
-                                 Predicate<ItemStack> itemCondition,
-                                 Consumer<Entity> entityAction,
-                                 Consumer<ItemStack> itemAction,
-                                 Consumer<ItemEntity> itemEntityAction) {
+    public ActionOnItemDropPower(
+            PowerType<?> type,
+            LivingEntity entity,
+            Predicate<ItemStack> itemCondition,
+            Consumer<Entity> entityAction,
+            Consumer<ItemStack> itemAction,
+            Consumer<ItemEntity> itemEntityAction
+    ) {
         super(type, entity);
 
         this.itemCondition = itemCondition;
