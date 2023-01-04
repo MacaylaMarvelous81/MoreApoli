@@ -20,7 +20,7 @@ jobs:
         if: ${{ runner.os != 'Windows' }}
         run: chmod +x ./gradlew
       - name: Build
-        uses: gradle/gradle-build-action@v2.3.3
+        run: ./gradlew build
       - name: Upload artifacts
         if: ${{ runner.os == 'Linux' && matrix.java == '17' }}
         uses: actions/upload-artifact@v3.1.1
