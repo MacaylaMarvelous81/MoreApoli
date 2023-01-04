@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "more_apoli",
+  "version": "${version}",
+  "name": "More Apoli",
+  "description": "Adds more Powers and Actions to Apoli.",
+  "authors": [
+    "MacaylaMarvelous81"
+  ],
+  "contact": {
+    "website": "https://github.com/MacaylaMarvelous81/MoreApoli",
+    "repo": "https://github.com/MacaylaMarvelous81/MoreApoli"
+  },
+  "license": "MIT",
+  "icon": "assets/more_apoli/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "io.github.macaylamarvelous81.moreapoli.client.MoreApoliClient"
+    ],
+    "main": [
+      "io.github.macaylamarvelous81.moreapoli.MoreApoli"
+    ]
+  },
+  "mixins": [
+    "more_apoli.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.12",
+    "fabric": "*",
+    "minecraft": "1.19.2"
+  }
+}
