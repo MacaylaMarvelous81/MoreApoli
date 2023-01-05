@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 /**
  * A mixin into the player entity class.
  *
- * @see PlayerEntity The class that this mixin targets.
+ * @see PlayerEntity
  * @version v0.0.1-SNAPSHOT
  * @since v0.0.1-SNAPSHOT
  */
