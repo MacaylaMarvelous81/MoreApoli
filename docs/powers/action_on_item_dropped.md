@@ -10,7 +10,7 @@ not other entities.
 |----------------------|-------------------------------------------------------------------------------------|----------|-------------------------------------------------------------------------------------------------------|
 | `item_condition`     | [Item Condition](https://origin.readthedocs.io/en/latest/item_condition_types)      | optional | If specified, the actions will only execute if this condition is fulfilled by the item after dropped. |
 | `entity_action`      | [Entity Action](https://origins.readthedocs.io/en/latest/types/entity_action_types) | optional | If specified, this action will be executed on the player after they drop an item.                     |
-| `item_action`        | [Item Action](https://origins.readthedocs.io/en/latest/types/item_action_types)     | optional | If specified, this action will be executed on the remaining item(s) in the stack.                     |
+| `item_action`        | [Item Action](https://origins.readthedocs.io/en/latest/types/item_action_types)     | optional | If specified, this action will be executed on **a copy** of the stack of dropped items.               |
 | `item_entity_action` | [Entity Action](https://origins.readthedocs.io/en/latest/types/entity_action_types) | optional | If specified, this action will be executed on the entity corresponding to the dropped item(s).        |
 
 ### Example

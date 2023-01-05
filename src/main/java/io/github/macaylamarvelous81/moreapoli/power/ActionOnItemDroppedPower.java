@@ -14,12 +14,47 @@ import net.minecraft.item.ItemStack;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
+/**
+ * This power enables triggering actions when the player drops an item. Actions can be triggered on the item, the
+ * player dropping the item, and the item entity spawned into the world. Although the power can be given to any living
+ * entity, it will only function correctly on players.
+ *
+ * @version v0.0.1-SNAPSHOT
+ * @since v0.0.1-SNAPSHOT
+ */
 public class ActionOnItemDroppedPower extends Power {
+    /**
+     * The item condition to test for. The actions will only be triggered if this condition is not specified or
+     * evaluates to true.
+     */
     private final Predicate<ItemStack> itemCondition;
+
+    /**
+     * The entity action to trigger on the player dropping the item. It will not be triggered if it is not specified.
+     */
     private final Consumer<Entity> entityAction;
+
+    /**
+     * The item action to trigger on a copy of the dropped stack of items.
+     */
     private final Consumer<ItemStack> itemAction;
+
+    /**
+     * The entity action to trigger on the item entity. An item entity is spawned into the world when a player drops
+     * an item, in order to represent it in the game world.
+     */
     private final Consumer<ItemEntity> itemEntityAction;
 
+    /**
+     * Constructs a new instance of the power.
+     *
+     * @param type The power type of this instance.
+     * @param entity The entity to apply this power to.
+     * @param itemCondition The item condition to test for.
+     * @param entityAction The entity action to trigger on the player dropping the item.
+     * @param itemAction The item action to trigger on a copy of the stack of dropped items.
+     * @param itemEntityAction The entity action to trigger on the new item entity.
+     */
     public ActionOnItemDroppedPower(
             PowerType<?> type,
             LivingEntity entity,
@@ -36,10 +71,23 @@ public class ActionOnItemDroppedPower extends Power {
         this.itemEntityAction = itemEntityAction;
     }
 
+    /**
+     * Determines whether the actions should be executed at this time.
+     *
+     * @param itemStack A copy of the stack of items dropped.
+     * @return true if the actions should be executed, false otherwise.
+     */
     public boolean shouldExecute(ItemStack itemStack) {
         return itemCondition == null || itemCondition.test(itemStack);
     }
 
+    /**
+     * Executes the actions provided. Note that the actions are executed, even if the conditions specified are not
+     * met.
+     *
+     * @param itemStack A copy of the stack of items dropped.
+     * @param itemEntity The item entity created from the item being dropped.
+     */
     public void executeActions(ItemStack itemStack, ItemEntity itemEntity) {
         if (itemAction != null) {
             itemAction.accept(itemStack);
@@ -54,6 +102,10 @@ public class ActionOnItemDroppedPower extends Power {
         }
     }
 
+    /**
+     * Creates a new power factory to be registered to Apoli's registry.
+     * @return The created power factory.
+     */
     public static PowerFactory createFactory() {
         return new PowerFactory<>(
                 MoreApoli.identifier("action_on_item_dropped"),
