@@ -1,7 +1,11 @@
 package io.github.macaylamarvelous81.moreapoli;
 
+import io.github.apace100.calio.resource.OrderedResourceListenerInitializer;
+import io.github.apace100.calio.resource.OrderedResourceListenerManager;
+import io.github.macaylamarvelous81.moreapoli.actionfunction.ActionFunctionManager;
 import io.github.macaylamarvelous81.moreapoli.power.factory.PowerFactories;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.resource.ResourceType;
 import net.minecraft.util.Identifier;
 
 /**
@@ -10,13 +14,25 @@ import net.minecraft.util.Identifier;
  * @version v0.0.1-SNAPSHOT
  * @since v0.0.1-SNAPSHOT
  */
-public class MoreApoli implements ModInitializer {
+public class MoreApoli implements ModInitializer, OrderedResourceListenerInitializer {
     /**
      * Does whatever the mod needs to do to initialize.
      */
     @Override
     public void onInitialize() {
         PowerFactories.register();
+    }
+
+    /**
+     * Registers the resource listeners of this mod.
+     *
+     * @param manager The resource listener manager to register the resource listeners to.
+     */
+    @Override
+    public void registerResourceListeners(OrderedResourceListenerManager manager) {
+        // Register action function resource listener
+        ActionFunctionManager actionFunctionManager = new ActionFunctionManager();
+        manager.register(ResourceType.SERVER_DATA, actionFunctionManager);
     }
 
     /**
