@@ -41,8 +41,10 @@ jobs:
           name: "More Apoli ${{ github.ref_name }}"
           version: ${{ github.ref_name }}
           version-type: ${{ steps.channel.channel }}
-          loaders: [ fabric ]
-          game-versions: [ 1.19.2 ]
+          loaders: |
+            fabric
+          game-versions: |
+            1.19.2
           modrinth-id: bEEBabZs
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
           github-tag: ${{ github.ref_name }}
