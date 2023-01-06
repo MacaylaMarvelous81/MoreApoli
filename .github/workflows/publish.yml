@@ -40,7 +40,7 @@ jobs:
           changelog-file: "changelog.md"
           name: "More Apoli ${{ github.ref_name }}"
           version: ${{ github.ref_name }}
-          version-type: ${{ steps.channel.channel }}
+          version-type: ${{ steps.channel.outputs.channel }}
           loaders: |
             fabric
           game-versions: |
