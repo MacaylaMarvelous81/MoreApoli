@@ -32,12 +32,12 @@ jobs:
         shell: bash
       - name: Get release notes
         id: notes
-        run: echo "notes=$(git tag -l --format='%(contents:body)' $GITHUB_REF_NAME)" >> $GITHUB_OUTPUT
+        run: git tag -l --format='%(contents:body)' $GITHUB_REF_NAME >> changelog.md
         shell: bash
       - uses: Kir-Antipov/mc-publish@v3.2
         name: Publish
         with:
-          changelog: ${{ steps.notes.notes }}
+          changelog-file: "changelog.md"
           name: "More Apoli ${{ github.ref_name }}"
           version: ${{ github.ref_name }}
           version-type: ${{ steps.channel.channel }}
