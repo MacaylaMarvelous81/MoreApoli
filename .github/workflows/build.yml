@@ -1,5 +1,10 @@
 name: Build
-on: [ pull_request, push, workflow_call ]
+on:
+  pull_request:
+  push:
+    tags-ignore:
+      - "**"
+  workflow_call:
 
 jobs:
   build:
