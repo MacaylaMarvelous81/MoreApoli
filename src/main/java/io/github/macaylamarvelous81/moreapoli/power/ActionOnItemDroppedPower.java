@@ -104,6 +104,7 @@ public class ActionOnItemDroppedPower extends Power {
 
     /**
      * Creates a new power factory to be registered to Apoli's registry.
+     *
      * @return The created power factory.
      */
     public static PowerFactory createFactory() {
