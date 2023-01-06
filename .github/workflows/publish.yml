@@ -34,6 +34,11 @@ jobs:
         id: notes
         run: git tag -l --format='%(contents:body)' $GITHUB_REF_NAME >> changelog.md
         shell: bash
+      - uses: madhead/read-java-properties@2.0.0
+        id: properties
+        with:
+          file: gradle.properties
+          all: true
       - uses: Kir-Antipov/mc-publish@v3.2
         name: Publish
         with:
@@ -44,7 +49,7 @@ jobs:
           loaders: |
             fabric
           game-versions: |
-            1.19.2
+            ${{ steps.properties.outputs.minecraft_version }}
           modrinth-id: bEEBabZs
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
           github-tag: ${{ github.ref_name }}
