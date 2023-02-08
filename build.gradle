@@ -35,9 +35,8 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    // Apoli (eggohito's fork)
-    // ISSUE: apace100/origins-fabric#619
-    modImplementation "com.github.eggohito:apoli:${project.apoli_version}"
+    // Apoli
+    modImplementation "com.github.apace100:apoli:${project.apoli_version}"
 }
 
 processResources {
