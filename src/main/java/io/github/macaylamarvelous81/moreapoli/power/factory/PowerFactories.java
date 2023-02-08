@@ -4,7 +4,7 @@ import io.github.apace100.apoli.power.factory.PowerFactory;
 import io.github.apace100.apoli.registry.ApoliRegistries;
 import io.github.macaylamarvelous81.moreapoli.power.ActionOnItemDroppedPower;
 import io.github.macaylamarvelous81.moreapoli.power.StepHeightPower;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
 
 /**
  * Class which registers the mod's power factories into the power factory registry.
