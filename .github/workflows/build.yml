@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v3.2.0
         with:
           ref: ${{ inputs.ref }}
-      - uses: gradle/wrapper-validation-action@v1.0.5
+      - uses: gradle/wrapper-validation-action@v1.0.6
       - name: Setup JDK 17
         uses: actions/setup-java@v3.10.0
         with:
